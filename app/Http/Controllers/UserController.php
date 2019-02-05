@@ -14,7 +14,7 @@ class UserController extends Controller
      *
      * @return void
      */
-     public function __construct(AppResponse $appResponse)
+    public function __construct(AppResponse $appResponse)
     {
         $this->appResponse = $appResponse;
         $this->middleware('auth');

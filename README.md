@@ -61,3 +61,18 @@ storage/web.php
 ```
     php artisan migrate
 ```
+
+#### setup app
+    1.Authcontroller untuk register dan login
+        - ambil token setelah login untuk di jadikan headers request
+
+    2. set middleware auth
+        - folder App\Providers\AuthServiceProvider
+    
+    3. setiap controller yang di akses setelah login harus di pasang middleware AuthController
+```
+    public function __construct(AppResponse $appResponse)
+    {
+        $this->middleware('auth');
+    }
+```
