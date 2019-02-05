@@ -12,3 +12,25 @@ storage/web.php
         return str_random(32);
     });
 ```        
+
+#### setup base auth
+    1. uncomment script berikut yang ada di folder bootstrap/app.php
+
+```
+    $app->withFacades();
+```
+```
+    $app->withEloquent();
+```
+
+```
+    $app->routeMiddleware([
+        'auth' => App\Http\Middleware\Authenticate::class,
+    ]);
+```
+```
+    $app->register(App\Providers\AppServiceProvider::class);
+```
+```
+    $app->register(App\Providers\AuthServiceProvider::class);
+```
