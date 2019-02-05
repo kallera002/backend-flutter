@@ -27,3 +27,20 @@
         2. Include /etc/phpmyadmin/apache.conf
         3. save
         4. sudo /etc/init.d/apache2 restart
+
+#### error pada php7.2
+    jika menggunakan php 7.2 kemunginan ada error
+    “Warning in ./libraries/sql.lib.php#613 count(): Parameter must be an array or an object that implements Countable”
+    solusi dari masalah di atas jalankan perintah berikut
+
+    1. backup sql.lib.php
+```
+    sudo cp /usr/share/phpmyadmin/libraries/sql.lib.php /usr/share/phpmyadmin/libraries/sql.lib.php.bak
+```
+    2.edit file tersebut
+```
+sudo nano /usr/share/phpmyadmin/libraries/sql.lib.php
+```
+    3. pencet CTRL + W dan cari (count($analyzed_sql_results['select_expr'] == 1)
+    4. ganti (count($analyzed_sql_results['select_expr'] == 1) dengan ((count($analyzed_sql_results['select_expr']) == 1)
+    5. save
